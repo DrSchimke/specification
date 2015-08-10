@@ -22,7 +22,7 @@ class OverlapsTest extends SpecificationTestCase
         $parameterNameTo = $specification->getParameterNameTo();
 
         $this->assertEquals(
-            'a.columnFrom <= :'. $parameterNameTo .' AND a.columnTo >= :'. $parameterNameFrom,
+            'a.columnFrom <= :'.$parameterNameTo.' AND a.columnTo >= :'.$parameterNameFrom,
             (string) $expression
         );
         $this->assertEquals($dateFrom, $this->queryBuilder->getParameter($parameterNameFrom)->getValue());

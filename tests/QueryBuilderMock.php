@@ -15,10 +15,9 @@ class QueryBuilderMock extends QueryBuilder
     public function expr()
     {
         if ($this->expressionBuilder === null) {
-            $this->expressionBuilder = new Query\Expr;
+            $this->expressionBuilder = new Query\Expr();
         }
 
         return $this->expressionBuilder;
-
     }
 }

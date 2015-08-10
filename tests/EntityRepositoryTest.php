@@ -3,8 +3,8 @@
 namespace Sci\Tests\Specification;
 
 use Sci\Specification\EntityRepository;
-use Sci\Specification\Specification;
 use Sci\Specification\Result\ResultSpecification;
+use Sci\Specification\Specification;
 
 /**
  * @group unitTest

@@ -31,9 +31,9 @@ abstract class Overlaps extends Base
     /**
      * @param string $fieldFrom
      * @param string $fieldTo
-     * @param mixed $valuefrom
-     * @param mixed $valueTo
-     * @param null $paramType
+     * @param mixed  $valuefrom
+     * @param mixed  $valueTo
+     * @param null   $paramType
      */
     public function __construct($fieldFrom, $fieldTo, $valuefrom, $valueTo, $paramType = null)
     {
@@ -41,7 +41,7 @@ abstract class Overlaps extends Base
         $this->fieldTo = $fieldTo;
         $this->valueFrom = $valuefrom;
         $this->valueTo = $valueTo;
-        $this->paramType  = $paramType;
+        $this->paramType = $paramType;
 
         $this->parameterNameFrom = $this->createUniqueParameterName($fieldFrom);
         $this->parameterNameTo = $this->createUniqueParameterName($fieldTo);
@@ -62,8 +62,8 @@ abstract class Overlaps extends Base
         $column2 = $this->getColumn($alias, $this->fieldTo);
 
         return $queryBuilder->expr()->andX(
-            $queryBuilder->expr()->lte($column1, ':' . $this->parameterNameTo),
-            $queryBuilder->expr()->gte($column2, ':' . $this->parameterNameFrom)
+            $queryBuilder->expr()->lte($column1, ':'.$this->parameterNameTo),
+            $queryBuilder->expr()->gte($column2, ':'.$this->parameterNameFrom)
         );
     }
 
@@ -94,7 +94,7 @@ abstract class Overlaps extends Base
         $column = $field;
 
         if (false === strpos($field, '.')) {
-            $column = $alias . '.' . $column;
+            $column = $alias.'.'.$column;
         }
 
         return $column;

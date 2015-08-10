@@ -16,11 +16,11 @@ class EntityRepository extends BaseRepository
      */
     public function match(Specification $specification)
     {
-        if (! $specification->supports($this->getEntityName())) {
+        if (!$specification->supports($this->getEntityName())) {
             throw new \InvalidArgumentException('Specification not supported by this repository.');
         }
 
-        $alias        = 'base_entity_alias';
+        $alias = 'base_entity_alias';
         $queryBuilder = $this->createQueryBuilder($alias);
 
         $expression = $specification->match($queryBuilder, $alias);

@@ -28,7 +28,7 @@ abstract class Equals extends Base
     {
         $this->field = $field;
         $this->value = $value;
-        $this->paramType  = $paramType;
+        $this->paramType = $paramType;
 
         $this->parameterName = $this->createUniqueParameterName($field);
     }
@@ -45,10 +45,10 @@ abstract class Equals extends Base
 
         $column = $this->field;
         if (false === strpos($this->field, '.')) {
-            $column = $alias . '.' . $column;
+            $column = $alias.'.'.$column;
         }
 
-        return $queryBuilder->expr()->eq($column, ':' . $this->parameterName);
+        return $queryBuilder->expr()->eq($column, ':'.$this->parameterName);
     }
 
     /**
