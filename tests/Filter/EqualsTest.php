@@ -16,11 +16,11 @@ class EqualsTest extends SpecificationTestCase
 
         // act
         $specification = new TestEqualsSpecification('foo', $value);
-        $expression    = $specification->match($this->queryBuilder, 'a');
+        $expression = $specification->match($this->queryBuilder, 'a');
 
         // assert
         $parameterName = $specification->getParameterName();
-        $this->assertEquals('a.foo = :' . $parameterName, (string) $expression);
+        $this->assertEquals('a.foo = :'.$parameterName, (string) $expression);
 
         $parameter = $this->queryBuilder->getParameter($parameterName);
         $this->assertNotNull($parameter);

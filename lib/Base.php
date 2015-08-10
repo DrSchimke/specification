@@ -15,7 +15,7 @@ abstract class Base implements Specification
         $key = sprintf('%s::%s', get_class($this), $column);
 
         if (!isset(self::$parameters[$key])) {
-            self::$parameters[$key] = 'a' . ++self::$counter;
+            self::$parameters[$key] = 'a'.++self::$counter;
         }
 
         return self::$parameters[$key];
@@ -30,7 +30,7 @@ abstract class Base implements Specification
      *   $this->join($queryBuilder, 'o.volume', 'v') INSTEAD OF $queryBuilder->join($join, $joinTableAlias)
      *
      * @param QueryBuilder $queryBuilder
-     * @param string       $join e.g. 'o.volume'
+     * @param string       $join           e.g. 'o.volume'
      * @param string       $joinTableAlias e.g. 'v'
      */
     protected function join(QueryBuilder $queryBuilder, $join, $joinTableAlias, $conditionType = null, $condition = null)

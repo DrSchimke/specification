@@ -6,7 +6,7 @@ use Doctrine\ORM\QueryBuilder;
 use Sci\Specification\Base;
 
 /**
- * Filter specification for DQL clause 'INSTANCE OF'
+ * Filter specification for DQL clause 'INSTANCE OF'.
  */
 abstract class Instance extends Base
 {
@@ -26,9 +26,9 @@ abstract class Instance extends Base
      */
     public function __construct($field, $className, $property = true)
     {
-        $this->field     = $field;
+        $this->field = $field;
         $this->className = $className;
-        $this->property  = $property;
+        $this->property = $property;
     }
 
     /**
@@ -41,7 +41,7 @@ abstract class Instance extends Base
     {
         $column = $this->field;
         if ($this->property && false === strpos($this->field, '.')) {
-            $column = $alias . '.' . $column;
+            $column = $alias.'.'.$column;
         }
 
         return sprintf('%s INSTANCE OF %s', $column, $this->className);

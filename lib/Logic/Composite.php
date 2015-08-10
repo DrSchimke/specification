@@ -36,7 +36,7 @@ abstract class Composite extends Base
     public function supports($entityName)
     {
         foreach ($this->children as $child) {
-            if (! $child->supports($entityName)) {
+            if (!$child->supports($entityName)) {
                 return false;
             }
         }

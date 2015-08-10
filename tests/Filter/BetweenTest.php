@@ -17,7 +17,7 @@ class BetweenTest extends SpecificationTestCase
 
         // act
         $specification = new TestBetweenSpecification('foo', $from, $to);
-        $expression    = $specification->match($this->queryBuilder, 'a');
+        $expression = $specification->match($this->queryBuilder, 'a');
 
         // assert
         $parameterFrom = $specification->getParameterFrom();

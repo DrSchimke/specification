@@ -34,12 +34,12 @@ abstract class Between extends Base
     public function __construct($field, $from, $to, $type = null)
     {
         $this->field = $field;
-        $this->from   = $from;
-        $this->to     = $to;
-        $this->type   = $type;
+        $this->from = $from;
+        $this->to = $to;
+        $this->type = $type;
 
         $this->parameterFrom = $this->createUniqueParameterName('from');
-        $this->parameterTo   = $this->createUniqueParameterName('to');
+        $this->parameterTo = $this->createUniqueParameterName('to');
     }
 
     /**
@@ -55,10 +55,10 @@ abstract class Between extends Base
 
         $column = $this->field;
         if (false === strpos($this->field, '.')) {
-            $column = $alias . '.' . $column;
+            $column = $alias.'.'.$column;
         }
 
-        return $queryBuilder->expr()->between($column, ':' . $this->parameterFrom, ':' . $this->parameterTo);
+        return $queryBuilder->expr()->between($column, ':'.$this->parameterFrom, ':'.$this->parameterTo);
     }
 
     /**

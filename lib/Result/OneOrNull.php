@@ -44,8 +44,9 @@ class OneOrNull implements Specification, ResultSpecification
     /**
      * @param AbstractQuery $query
      *
-     * @return mixed
      * @throws NonUniqueResultException
+     *
+     * @return mixed
      */
     public function getResult(AbstractQuery $query)
     {

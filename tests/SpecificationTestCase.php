@@ -2,9 +2,9 @@
 
 namespace Sci\Tests\Specification;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\ORM\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
 
 abstract class SpecificationTestCase extends \PHPUnit_Framework_TestCase
 {

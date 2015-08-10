@@ -28,7 +28,7 @@ abstract class In extends Base
     {
         $this->column = $column;
         $this->values = $values;
-        $this->type   = $type;
+        $this->type = $type;
 
         $this->parameterName = $this->createUniqueParameterName($column);
     }
@@ -46,10 +46,10 @@ abstract class In extends Base
 
             $column = $this->column;
             if (false === strpos($this->column, '.')) {
-                $column = $alias . '.' . $column;
+                $column = $alias.'.'.$column;
             }
 
-            $expression = $queryBuilder->expr()->in($column, ':' . $this->parameterName);
+            $expression = $queryBuilder->expr()->in($column, ':'.$this->parameterName);
         } else {
             $expression = $queryBuilder->expr()->eq(0, 1);
         }
