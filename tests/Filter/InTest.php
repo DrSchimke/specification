@@ -16,11 +16,11 @@ class InTest extends SpecificationTestCase
 
         // act
         $specification = new TestInSpecification('foo', $values);
-        $expression    = $specification->match($this->queryBuilder, 'a');
+        $expression = $specification->match($this->queryBuilder, 'a');
 
         // assert
         $parameterName = $specification->getParameterName();
-        $this->assertEquals('a.foo IN(:' . $parameterName . ')', (string) $expression);
+        $this->assertEquals('a.foo IN(:'.$parameterName.')', (string) $expression);
 
         $parameter = $this->queryBuilder->getParameter($parameterName);
         $this->assertNotNull($parameter);
@@ -33,7 +33,7 @@ class InTest extends SpecificationTestCase
 
         // act
         $specification = new TestInSpecification('foo', $values);
-        $expression    = $specification->match($this->queryBuilder, 'a');
+        $expression = $specification->match($this->queryBuilder, 'a');
 
         // assert
         $this->assertEquals('0 = 1', (string) $expression);
