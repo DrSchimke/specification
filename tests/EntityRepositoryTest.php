@@ -6,10 +6,6 @@ use Sci\Specification\EntityRepository;
 use Sci\Specification\Result\ResultSpecification;
 use Sci\Specification\Specification;
 
-/**
- * @group unitTest
- * @group specificationPattern
- */
 class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
 {
     /** @var EntityRepository|\PHPUnit_Framework_MockObject_MockObject */
@@ -24,10 +20,10 @@ class EntityRepositoryTest extends \PHPUnit_Framework_TestCase
 
         $this->entityRepository->expects($this->any())->method('getEntityName')->willReturn($entityName);
 
-        $specification = $this->getMock(Specification::class);
-        $specification->expects($this->once())->method('supports')->with($entityName)->willReturn(false);
+        $specification = $this->prophesize(Specification::class);
+        $specification->supports($entityName)->willReturn(false);
 
-        $this->entityRepository->match($specification);
+        $this->entityRepository->match($specification->reveal());
     }
 
     public function testMatch()
